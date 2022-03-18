@@ -17,12 +17,6 @@
 
   <div id="app">计算机网络</div>
 
-  <script>
-    if (typeof navigator.serviceWorker !== 'undefined') {
-      navigator.serviceWorker.register('sw.js')
-    }
-  </script>
-
   <wc-scroll-button/>
 
   <script>
@@ -111,6 +105,12 @@
 
   <!-- custom-plugins( Dev... ) -->
   <script src="./custom-plugins/footer.js"></script>
+
+  <script>
+    if (typeof navigator.serviceWorker !== 'undefined') {
+      navigator.serviceWorker.register('sw.js')
+    }
+  </script>
 
 </body>
 </html>
