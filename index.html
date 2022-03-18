@@ -11,11 +11,25 @@
   <!-- style-sheet -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify/themes/dark.css" />
 
+  <!-- pwa -->
+  <link rel="canonical" href="https://brannua.github.io/network-learn/" />
+  <link rel="manifest" href="/network-learn/manifest.webmanifest">
+
 </head>
 
 <body>
 
   <div id="app">计算机网络</div>
+
+  <script>
+    /* pwa */
+    if (navigator.serviceWorker) {
+      navigator.serviceWorker.register (
+        '/network-learn/sw.js',
+        {scope: '/network-learn/'}
+      )
+    }
+  </script>
 
   <wc-scroll-button/>
 

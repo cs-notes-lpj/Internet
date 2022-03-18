@@ -1,0 +1,17 @@
+{
+  "name": "lpj-netbook-pwa",
+  "short_name": "pwa",
+  "description": "lpj-netbook as a Progressive Web App",
+  "scope": "/network-learn/",
+  "start_url": "/network-learn/",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "display": "standalone", 
+  "icons": [
+      {
+        "src": "/github-page-pwa/img/icon.png",
+        "type": "image/png",
+        "sizes": "700x700"
+      }
+  ]
+}
