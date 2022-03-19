@@ -7,10 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- style-sheet -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify/themes/dark.css" />
-
 </head>
 
 <body>
@@ -80,32 +77,10 @@
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-c.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-cpp.min.js"></script>
 
-  <!-- modify-css -->
-  <script>
-    let _modifyCSS = (app_name, search_plugin) => {
-      app_name.style.margin = '0';
-      app_name.style.padding = '0';
-      app_name.style.height = '4rem';
-      app_name.style.lineHeight = '4rem';
-      app_name.style.color = '#fff';
-      app_name.style.backgroundColor = window.$docsify.themeColor;
-      
-      search_plugin.style.margin = '0';
-      search_plugin.style.padding = '0';
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      let app_name = document.getElementsByClassName('app-name')[0],
-          search_plugin = document.getElementsByClassName('search')[0];
-
-      search_plugin.parentNode.insertBefore(app_name, search_plugin);
-      _modifyCSS(app_name, search_plugin);
-    }, false);
-  </script>
-
   <!-- custom -->
   <script src="https://cdn.jsdelivr.net/npm/wc-scroll-button@latest" type="module"></script>
-  <script src="./plugins/footer.js"></script>
+  <script src="./js/modify-css.js"></script>
+  <script src="./js/copyright.js"></script>
 
 </body>
 </html>
