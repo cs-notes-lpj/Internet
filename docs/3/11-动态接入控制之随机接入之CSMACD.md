@@ -260,6 +260,10 @@
 
 > 快递来了去取快递，一看是破的扭头就走，不破就看看收件人是不是自己，是自己就打开看看坏了没，好的确认无误签收
 
+#### 注意
+
+<img src="https://gitee.com/pj-l/imgs-1/raw/master/image-20220322120025663.png" alt="image-20220322120025663" style="zoom:70%;" />
+
 #### 习题
 
 ![image-20220322112938056](https://gitee.com/pj-l/imgs-1/raw/master/image-20220322112938056.png)
@@ -271,5 +275,3 @@
 ![image-20220322115933165](https://gitee.com/pj-l/imgs-1/raw/master/image-20220322115933165.png)
 
 ![image-20220322115904661](https://gitee.com/pj-l/imgs-1/raw/master/image-20220322115904661.png)
-
-![image-20220322120025663](https://gitee.com/pj-l/imgs-1/raw/master/image-20220322120025663.png)
