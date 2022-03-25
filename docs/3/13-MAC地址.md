@@ -10,7 +10,7 @@
 
 - 如图所示，两台主机通过一条链路通信
 
-<img src="/home/lpj/.config/Typora/typora-user-images/image-20220323184739004.png" alt="image-20220323184739004" style="zoom:60%;" />
+<img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220323184739004.png" alt="image-20220323184739004" style="zoom:60%;" />
 
 - 显然，它们不需要使用地址就能通信（因为连接在信道上的主机只有它们两个呀～）
 
@@ -20,13 +20,13 @@
 
 - 再来看使用共享信道的总线型局域网
 
-<img src="https://gitee.com/pj-l/imgs-1/raw/master/image-20220323184956437.png" alt="image-20220323184956437" style="zoom:55%;" />
+<img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220323184956437.png" alt="image-20220323184956437" style="zoom:55%;" />
 
 - 当总线上的一台主机要给另一台主机发送帧
 
 - 那么表示帧的信号会通过总线传送到总线上的所有主机（即：信号广播）
 
-<img src="https://gitee.com/pj-l/imgs-1/raw/master/image-20220323185151762.png" alt="image-20220323185151762" style="zoom:55%;" />
+<img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220323185151762.png" alt="image-20220323185151762" style="zoom:55%;" />
 
 - 那么主机如何判断收到的帧是不是发送给自己的呢 ？
 
@@ -36,7 +36,7 @@
 
 - 如下图，用不同的大写字母来表示总线上各主机的地址
 
-<img src="https://gitee.com/pj-l/imgs-1/raw/master/image-20220323190725565.png" alt="image-20220323190725565" style="zoom:50%;" />
+<img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220323190725565.png" alt="image-20220323190725565" style="zoom:50%;" />
 
 - 在每个主机发送的帧中，必须携带用于标识（发送主机 & 接收主机）的地址
 
@@ -52,7 +52,7 @@
 
 - 如此一来，总线上其他各主机收到该帧后，就可以根据帧首部中的目的地址字段的值是否与自己的 MAC 地址匹配来选择丢弃还是接受该帧
 
-![image-20220325103643203](https://gitee.com/pj-l/imgs-1/raw/master/image-20220325103643203.png)
+![image-20220325103643203](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220325103643203.png)
 
 ---
 
@@ -60,7 +60,7 @@
 >
 > MAC 地址有时也被称为物理地址（eg：在 Windows 系统中，哦这真是一个糟糕的命名），但 MAC 地址实际上是属于数据链路层 ！
 
-![image-20220325104952486](https://gitee.com/pj-l/imgs-1/raw/master/image-20220325104952486.png)
+![image-20220325104952486](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220325104952486.png)
 
 - 下图是一块 PCI 接口的千兆以太网卡
 
@@ -72,7 +72,7 @@
 	
 	- 其网络隔离变压器能够将核心芯片与外部相隔离，提高抗干扰能力，并对核心芯片进行保护（eg：防雷击）
 
-![image-20220325104607683](https://gitee.com/pj-l/imgs-1/raw/master/image-20220325104607683.png)
+![image-20220325104607683](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220325104607683.png)
 
 ---
 
@@ -108,13 +108,13 @@
 
 	- 当然，也可将每 4 个字符分为一组，共 3 组，组之间用点连接
 
-![image-20220325110324966](https://gitee.com/pj-l/imgs-1/raw/master/image-20220325110324966.png)
+![image-20220325110324966](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220325110324966.png)
 
 > 另外，我们可以在 IEEE 的官网，查看已分配的组织唯一标识符 OUI：https://standards-oui.ieee.org/oui/oui.txt
 >
 > 如果我们知道设备的 MAC 地址，而不知道该设备的厂商信息，就可通过设备的 MAC 地址来查询
 
-![image-20220325111001477](https://gitee.com/pj-l/imgs-1/raw/master/image-20220325111001477.png)
+![image-20220325111001477](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220325111001477.png)
 
 ---
 
@@ -142,7 +142,7 @@
 
 > 注意：当 MAC 地址的 48 比特全都是 1 时（即十六进制形式全 F 时），就是广播地址
 
-![image-20220325113414164](https://gitee.com/pj-l/imgs-1/raw/master/image-20220325113414164.png)
+![image-20220325113414164](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220325113414164.png)
 
 > 思考：我们每个人一般会拥有多少个全球管理的单播 MAC 地址呢 ？
 
@@ -152,11 +152,11 @@
 
 > 那么：在我们有生之年，是否会看到 EUI-48 地址空间耗尽呢 ？
 
-![image-20220325113919352](https://gitee.com/pj-l/imgs-1/raw/master/image-20220325113919352.png)
+![image-20220325113919352](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220325113919352.png)
 
 #### MAC 地址的发送顺序
 
-![image-20220325114101007](https://gitee.com/pj-l/imgs-1/raw/master/image-20220325114101007.png)
+![image-20220325114101007](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220325114101007.png)
 
 #### 单播 MAC 地址的作用
 
@@ -168,7 +168,7 @@
 
 	- 主机 B 首先需要构建该单播帧，即：在帧首部中的目的地址字段，写入主机 C 的 MAC 地址，源地址字段写入自己的 MAC 地址，再加上（帧首部中的其它字段、数据载荷、帧尾部）
 
-![image-20220325114554615](https://gitee.com/pj-l/imgs-1/raw/master/image-20220325114554615.png)
+![image-20220325114554615](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220325114554615.png)
 
 - 主机 B 将该单播帧发送出去，主机 A 和 C 都会收到该单播帧
 
@@ -176,11 +176,11 @@
 
 	- 主机 C 的网卡发现该单播帧的目的 MAC 地址与自己的 MAC 地址匹配，于是接受该帧，并将该帧交给其上层处理
 
-![image-20220325114813425](https://gitee.com/pj-l/imgs-1/raw/master/image-20220325114813425.png)
+![image-20220325114813425](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220325114813425.png)
 
 #### 广播 MAC 地址的作用
 
-![image-20220325114922238](https://gitee.com/pj-l/imgs-1/raw/master/image-20220325114922238.png)
+![image-20220325114922238](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220325114922238.png)
 
 - 假设主机 B 要发送一个广播帧
 
@@ -190,27 +190,27 @@
 
 	- 发现该帧首部中的目的地址字段的内容是广播地址，就知道该帧是广播帧，于是接受该帧，并将该帧交给上层处理
 
-![image-20220325115302879](https://gitee.com/pj-l/imgs-1/raw/master/image-20220325115302879.png)
+![image-20220325115302879](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220325115302879.png)
 
 #### 如何快速判断 MAC 地址是否是多播地址
 
-![image-20220325115722445](https://gitee.com/pj-l/imgs-1/raw/master/image-20220325115722445.png)
+![image-20220325115722445](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220325115722445.png)
 
 #### 多播 MAC 地址的作用
 
-![image-20220325115404016](https://gitee.com/pj-l/imgs-1/raw/master/image-20220325115404016.png)
+![image-20220325115404016](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220325115404016.png)
 
 - 假设主机 A 要向多播地址 07-E0-12-F6-2A-D8 发送多播帧
 
 - 将该多播地址的左起第 1 个字节写成 8 个比特，可以看到最低比特位是 1，这就表明该地址是多播地址
 
-![image-20220325115926707](https://gitee.com/pj-l/imgs-1/raw/master/image-20220325115926707.png)
+![image-20220325115926707](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220325115926707.png)
 
 - 假设主机 B、C、D 支持 MAC 多播，各用户给自己的主机配置的多播组列表如下
 
 	- 可以看到，主机 B 和 C 都属于 2 个多播组，主机 D 不属于任何多播组
 
-![image-20220325120147883](https://gitee.com/pj-l/imgs-1/raw/master/image-20220325120147883.png)
+![image-20220325120147883](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220325120147883.png)
 
 - 主机 A 首先需要构建该多播帧，即：在帧首部中的目的地址字段，写入多播地址，源地址字段写入自己的 MAC 地址，再加上（帧首部中的其它字段、数据载荷、帧尾部）
 
@@ -220,11 +220,11 @@
 
 	- 而主机 D 发现该多播帧的目的 MAC 地址不在自己的多播组列表中，因此主机 D 会丢弃该多播帧
 
-![image-20220325120521725](https://gitee.com/pj-l/imgs-1/raw/master/image-20220325120521725.png)
+![image-20220325120521725](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220325120521725.png)
 
 > 注意：下图
 
-![image-20220325120723828](https://gitee.com/pj-l/imgs-1/raw/master/image-20220325120723828.png)
+![image-20220325120723828](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220325120723828.png)
 
 #### 随机 MAC 地址
 
@@ -236,4 +236,4 @@
 
 - 目前，大多数移动设备都已经采用了随机 MAC 地址技术
 
-![image-20220325121105526](https://gitee.com/pj-l/imgs-1/raw/master/image-20220325121105526.png)
+![image-20220325121105526](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220325121105526.png)

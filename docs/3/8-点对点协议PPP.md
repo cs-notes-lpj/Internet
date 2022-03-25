@@ -16,11 +16,11 @@
 
 	- 使得 ISP 可以通过「数字用户线路 DSL（Digital Subscriber Line）、电路调制解调器、以太网」等宽带接入技术，以「以太网接口」的形式为用户提供接入服务
 
-![image-20220320105738130](https://gitee.com/pj-l/imgs-1/raw/master/image-20220320105738130.png)
+![image-20220320105738130](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220320105738130.png)
 
 - 另外，点对点协议 PPP 也被广泛应用于广域网路由器之间的专用线路
 
-![image-20220320105859530](https://gitee.com/pj-l/imgs-1/raw/master/image-20220320105859530.png)
+![image-20220320105859530](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220320105859530.png)
 
 - PPP 协议是因特网工程任务组 IETF 在 1992 年制定的
 
@@ -32,17 +32,17 @@
 
 #### 正篇开始
 
-![image-20220320111558033](https://gitee.com/pj-l/imgs-1/raw/master/image-20220320111558033.png)
+![image-20220320111558033](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220320111558033.png)
 
 - 从网络体系结构的角度看，PPP 是数据链路层的协议，它将上层交付下来的协议数据单元封装成 PPP 帧
 
 - PPP 协议能在多种类型的点对点链路上运行（eg：面向字节的异步链路，面向比特的同步链路）
 
-![image-20220320112515585](https://gitee.com/pj-l/imgs-1/raw/master/image-20220320112515585.png)
+![image-20220320112515585](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220320112515585.png)
 
 #### PPP 协议的「帧格式」
 
-![image-20220320112750276](https://gitee.com/pj-l/imgs-1/raw/master/image-20220320112750276.png)
+![image-20220320112750276](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220320112750276.png)
 
 - 帧首部和帧尾部中的「标志 `F`lag」字段是 PPP 帧的定界符，取值为十六进制的 7E，即 0x7E
 
@@ -56,15 +56,15 @@
 
 	- 当取值为十六进制的 0021，即 0x0021 时，PPP 帧的数据部分就是 IP 数据报
 
-	<img src="https://gitee.com/pj-l/imgs-1/raw/master/image-20220320113933311.png" alt="image-20220320113933311" style="zoom:50%;" />
+	<img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220320113933311.png" alt="image-20220320113933311" style="zoom:50%;" />
 
 	- 当取值为十六进制的 8021，即 0x8021 时，PPP 帧的数据部分就是网络控制协议 NCP 的分组
 
-	<img src="https://gitee.com/pj-l/imgs-1/raw/master/image-20220320114011833.png" alt="image-20220320114011833" style="zoom:50%;" />
+	<img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220320114011833.png" alt="image-20220320114011833" style="zoom:50%;" />
 
 	- 当取值为十六进制的 C021，即 0xC021 时，PPP 帧的数据部分就是链路控制协议 LCP 的分组
 
-	<img src="https://gitee.com/pj-l/imgs-1/raw/master/image-20220320114045824.png" alt="image-20220320114045824" style="zoom:50%;" />
+	<img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220320114045824.png" alt="image-20220320114045824" style="zoom:50%;" />
 
 - 帧尾部中的帧检验序列 FCS（`F`rame `C`heck `S`equence）字段，其值是使用循环冗余校验CRC计算出的校验位，用于检查 PPP 帧是否存在误码
 
@@ -74,7 +74,7 @@
 
 - 这是因为（标志字段 `F`lag 是 PPP 帧的定界符，取值为十六进制的 7E，即 0x7E，即 01111110）
 
-![image-20220320115511266](https://gitee.com/pj-l/imgs-1/raw/master/image-20220320115511266.png)
+![image-20220320115511266](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220320115511266.png)
 
 > PPP 协议实现透明传输的方法取决于所使用的链路类型
 
@@ -82,7 +82,7 @@
 
 2. 对于面向比特的同步链路，则采用「比特填充法」，也就是（插入比特 0）
 
-![image-20220320121433452](https://gitee.com/pj-l/imgs-1/raw/master/image-20220320121433452.png)
+![image-20220320121433452](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220320121433452.png)
 
 #### 字节填充法
 
@@ -98,7 +98,7 @@
 
 	- 在出现的每一个 ASCII 码控制字符（数值小于 0x20 的字符）前插入一个 7D 字节，同时将该字符的编码加上十六进制的 20（er ling）
 
-	<img src="https://gitee.com/pj-l/imgs-1/raw/master/image-20220320132850917.png" alt="image-20220320132850917" style="zoom:50%;" />
+	<img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220320132850917.png" alt="image-20220320132850917" style="zoom:50%;" />
 
 - 接收方：
 
@@ -114,7 +114,7 @@
 
 	- 对帧的数据部分进行扫描（一般由硬件实现），只要发现 5 个连续的比特 1，就立刻填充 1 个比特 0
 
-	![image-20220320134123162](https://gitee.com/pj-l/imgs-1/raw/master/image-20220320134123162.png)
+	![image-20220320134123162](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220320134123162.png)
 	
 - 接收方对 PPP 帧数据部分的处理：
 
@@ -126,15 +126,15 @@
 
 - 使用循环冗余校验 CRC 来计算该字段的取值，采用的生成多项式如下所示
 
-<img src="https://gitee.com/pj-l/imgs-1/raw/master/image-20220320134621530.png" alt="image-20220320134621530" style="zoom:50%;" />
+<img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220320134621530.png" alt="image-20220320134621530" style="zoom:50%;" />
 
 - RFC 1662 的附录部分给出了 FCS 的计算方法的 C 语言实现，为了减少对 CPU 的占用，采用「查表法」来实现
 
-<img src="https://gitee.com/pj-l/imgs-1/raw/master/image-20220320134921463.png" alt="image-20220320134921463" style="zoom:50%;" />
+<img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220320134921463.png" alt="image-20220320134921463" style="zoom:50%;" />
 
 - FCS 的计算范围如图所示
 
-<img src="https://gitee.com/pj-l/imgs-1/raw/master/image-20220320134709863.png" alt="image-20220320134709863" style="zoom:50%;" />
+<img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220320134709863.png" alt="image-20220320134709863" style="zoom:50%;" />
 
 - 接收方每收到一个 PPP 帧，就进行 CRC 检验，若检验正确，就手下这个帧，反之就丢弃这个帧
 
@@ -142,7 +142,7 @@
 
 #### 以拨号接入为例，介绍 PPP 协议的工作状态
 
-![image-20220320140219761](https://gitee.com/pj-l/imgs-1/raw/master/image-20220320140219761.png)
+![image-20220320140219761](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220320140219761.png)
 
 - PPP 链路的开始和结束状态都是「静止」状态，这时并不存在物理层的链接
 
