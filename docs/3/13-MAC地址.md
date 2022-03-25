@@ -111,8 +111,10 @@
 ![image-20220325110324966](https://gitee.com/pj-l/imgs-1/raw/master/image-20220325110324966.png)
 
 > 另外，我们可以在 IEEE 的官网，查看已分配的组织唯一标识符 OUI：https://standards-oui.ieee.org/oui/oui.txt
+>
+> 如果我们知道设备的 MAC 地址，而不知道该设备的厂商信息，就可通过设备的 MAC 地址来查询
 
-- 如果我们知道设备的 MAC 地址，而不知道该设备的厂商信息，可以通过设备的 MAC 地址来查询
+![image-20220325111001477](https://gitee.com/pj-l/imgs-1/raw/master/image-20220325111001477.png)
 
 ---
 
