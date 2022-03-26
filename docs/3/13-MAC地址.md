@@ -236,4 +236,6 @@
 
 - 目前，大多数移动设备都已经采用了随机 MAC 地址技术
 
+- [笔者实践记录](https://liupj.top/2022/03/26/knowledge/internet/mac-randomize/)
+
 ![image-20220325121105526](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220325121105526.png)
