@@ -12,25 +12,19 @@
 
 > 实际上，每台主机都会有一个 ARP 高速缓存表
 
-![image-20220326163542523](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220326163542523.png)
-
 - 在本例中，当主机 B 要给主机 C 发送数据包时
 
-	- 会首先在自己的 ARP 高速缓存表中查找主机 C 的 IP 地址所对应的 MAC 地址，显然找不到
+- 会首先在自己的 ARP 高速缓存表中查找主机 C 的 IP 地址所对应的 MAC 地址，显然找不到
 
 ![image-20220326163816546](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220326163816546.png)
 
-- 因此，主机 B 需要发送 ARP 请求报文，以获取主机 C 的 MAC 地址
+- 因此，主机 B 首先需要发送 ARP 请求报文，以获取主机 C 的 MAC 地址
 
 ![image-20220326164055053](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220326164055053.png)
 
-> 注意：
-> 
-> 1. 实际上的 APR 请求报文有其具体的格式，而并非上图中的比较通俗的描述
-> 
-> 2. ARP 请求报文被封装在 MAC 帧中发送，目的地址为广播地址
+> 注意：实际上的 APR 请求报文有其具体的格式，而并非上图中的比较通俗的描述
 
-- 主机 B 发送封装有 ARP 请求报文的广播帧，总线上的其它主机都能收到该广播帧
+- 总线上的其它主机都收到了该广播帧
 
 ![image-20220326164610376](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220326164610376.png)
 
@@ -48,11 +42,7 @@
 
 - 然后给主机 B 发送 ARP 响应报文，以告知自己的 MAC 地址
 
-> 注意：
-> 
-> 1. ARP 响应报文被封装在 MAC 帧中发送，目的地址为主机 B 的 MAC 地址
-
-- 主机 C 给主机 B 发送封装有 ARP 响应报文的单播帧，**总线上的其它主机都能收到该单播帧 ！**
+> 注意：主机 C 给主机 B 发送的封装有 ARP 响应报文的单播帧，**总线上的其它主机都能收到该单播帧 ！**（共享总线型以太网嘛，广播是必须的嘛）
 
 ![image-20220326165420349](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220326165420349.png)
 
@@ -86,9 +76,7 @@
 
 ![image-20220326171157616](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220326171157616.png)
 
-- 答案是否定的，这是因为 **ARP 协议只能在一段链路或一个网络上使用，而不能跨网络使用**
-
-- 对于本例，ARP 协议的使用是逐段链路进行的 ！
+- 答案是否定的，这是因为 **ARP 协议只能在一段链路或一个网络上使用，而不能跨网络使用**，本例只能逐段链路使用 ARP 协议
 
 ![image-20220326171515126](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220326171515126.png)
 
@@ -96,6 +84,6 @@
 
 > 注意：
 > 
-> 1. 除 ARP 请求和响应报文外，ARP 还有其它类型的报文，例如用于检查 IP 地址冲突的无故 ARP（也叫免费 ARP）
+> 1. ARP 协议无安全验证机制，存在（ARP 欺骗或攻击）的问题
 > 
-> 2. ARP 协议无安全验证机制，存在（ARP 欺骗或攻击）的问题
+> 2. 除 ARP 请求和响应报文外，ARP 还有其它类型的报文，例如用于检查 IP 地址冲突的无故 ARP（也叫免费 ARP）
