@@ -72,3 +72,39 @@
 
 <img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220329103427182.png" alt="image-20220329103427182" style="zoom:50%;" />
 
+#### 如果我们的应用需求是：将主机 A 和 B 划归到 VLAN2，将主机 C 和 D 划归到 VLAN3
+
+- 如此，VLAN2 中的广播帧不会传送到 VLAN3，VLAN3 中的广播帧也不会传送到 VLAN2
+
+- 为实现这种应用，可在交换机上创建 VLAN2 和 VLAN3，然后
+
+	- 将交换机的端口 1 和 2 划归到 VLAN2，因此端口 1 和 2 的 PVID 值为 2
+
+	- 将交换机的端口 3 和 4 划归到 VLAN3，因此端口 3 和 4 的 PVID 值为 3
+
+<img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220329103836400.png" alt="image-20220329103836400" style="zoom:50%;" />
+
+- 假设主机 A 发送广播帧
+
+	- 该帧从交换机的端口 1 进入交换机
+
+	- 由于端口 1 的类型是 Access，所以它会对接收到的“未打标签”的普通以太网 MAC 帧“打标签”，即：插入 4 字节的 VLAN 标记字段
+
+	- 由于端口 1 的 PVID 值为 2，因此所插入的 4 字节的 VLAN 标记字段中的 VID 值为 2
+	
+- 由于广播帧中 VID 的取值与端口 2 的 PVID 的取值相等，都为 2
+
+- 所以，广播帧会被先“去标签”后从端口 2 转发
+
+<img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220329104140514.png" alt="image-20220329104140514" style="zoom:50%;" />
+
+#### Trunk 端口
+
+> Trunk 端口可以属于多个 VLAN，也就是说 Trunk 端口可以接收和发送多个 VLAN 的帧
+> 
+> Truank 端口一般用于（交换机之间 || 交换机与路由器之间）的互连
+
+- Trunk 端口的默认 PVID 值为 1，但用户可自行设置 Trunk 端口的 PVID 值
+
+---
+
