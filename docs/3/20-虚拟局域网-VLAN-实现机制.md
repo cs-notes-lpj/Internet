@@ -34,7 +34,7 @@
 
 > 注意：思科交换机没有 Hybrid 端口
 
-#### Access 端口
+#### 1、Access 端口
 
 > Access 端口只能属于 1 个 VLAN，一般用于连接用户计算机
 >
@@ -48,7 +48,7 @@
 
 <img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220329100140434.png" alt="image-20220329100140434" style="zoom:50%;" />
 
-#### Access 端口的接收处理方法
+##### Access 端口的接收处理方法
 
 - Access 端口一般只接受“未打标签”的普通以太网 MAC 帧，然后根据接收帧的端口的 PVID 给帧“打标签”，举例如下
 
@@ -62,7 +62,7 @@
 
 <img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220329102906036.png" alt="image-20220329102906036" style="zoom:50%;" />
 
-#### Access 端口的发送处理方法
+##### Access 端口的发送处理方法
 
 - 若帧中的 VID 与端口的 PVID 相等，则“去标签”后转发该帧，否则不转发
 
@@ -72,7 +72,7 @@
 
 <img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220329103427182.png" alt="image-20220329103427182" style="zoom:50%;" />
 
-#### 如果我们的应用需求是：将主机 A 和 B 划归到 VLAN2，将主机 C 和 D 划归到 VLAN3
+##### 如果我们的应用需求是：将主机 A 和 B 划归到 VLAN2，将主机 C 和 D 划归到 VLAN3
 
 - 如此，VLAN2 中的广播帧不会传送到 VLAN3，VLAN3 中的广播帧也不会传送到 VLAN2
 
@@ -98,7 +98,7 @@
 
 <img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220329104140514.png" alt="image-20220329104140514" style="zoom:50%;" />
 
-#### Trunk 端口
+#### 2、Trunk 端口
 
 > Trunk 端口可以属于多个 VLAN，也就是说 Trunk 端口可以接收和发送多个 VLAN 的帧
 > 
