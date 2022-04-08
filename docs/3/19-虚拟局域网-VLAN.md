@@ -6,17 +6,17 @@
 
 - 但在自己的 ARP 高速缓存表中，无法查到目的主机的 MAC 地址
 
-- 于是，首先要发送 ARP 广播请求来获取目的主机的 MAC 地址，该 ARP 广播请求会传遍整个网络，网络中的其他所有主机都能收到该广播
+- 于是，首先就会发送 ARP 广播请求来获取目的主机的 MAC 地址，该 ARP 广播请求会传遍整个网络，网络中的其他所有主机都能收到该广播
 
 - 这种情况就是所谓的广播风暴
 
 <img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220327163122734.png" alt="image-20220327163122734" style="zoom:50%;" />
 
-> 广播风暴会浪费网络资源和网络中各主机的 CPU 资源
+> 广播风暴会浪费网络资源，也浪费网络中各主机的 CPU 资源
 > 
 > 因此：除非实际的应用需求必须得使用广播，否则网络中的主机应尽量不使用广播 ！
 > 
-> 但实际情况是，网络中会频繁出现广播信息 ！
+> 但实际情况是 => 网络中会频繁出现广播信息 ！
 
 ![image-20220327163352058](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220327163352058.png)
 
@@ -44,7 +44,7 @@
 
 ![image-20220327164940587](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220327164940587.png)
 
-- 可将它们通过另外一个交换机互连形成一个更大的局域网，那么原来每一个局域网都会成为现在这个局域网的一个网段
+- 可将它们通过另外一个交换机互连形成一个更大的局域网，那么原来每一个局域网都会成为现在这个局域网的一个**网段**
 
 ![image-20220327165027686](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220327165027686.png)
 
