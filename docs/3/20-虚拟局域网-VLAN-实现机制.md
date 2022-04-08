@@ -111,6 +111,10 @@
 
 - 由于该帧的 VID 和端口 2 的 PVID 值相等 => 所以该帧会被“去标签”后从端口 2 转发
 
+- 同理
+
+![image-20220408173317690](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220408173317690.png)
+
 #### 2、Trunk 端口
 
 
