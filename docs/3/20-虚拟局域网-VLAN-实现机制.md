@@ -55,69 +55,79 @@
 
 #### 1、Access 端口
 
-> Access 端口只能属于 1 个 VLAN，一般用于连接用户计算机
->
-> 因此：Access 端口的 PVID 值 === 端口所属 VLAN 的 ID 值，默认为 1
+- Access 端口一般用于连接用户计算机，Access 端口只能属于 1 个 VLAN
+
+- 因此：
+
+	- Access 端口的 PVID 值 == Access 端口所属的 VLAN 的 ID 值，默认为 1
 
 - 如下图：
 
-	- 主机 A、B、C、D 分别连接在交换机的 1 个端口上
+	- 主机 A、B、C、D 连接在交换机的不同端口上
 
-	- 交换机首次上电时（各端口默认类型为 Access，我们这里用大写字母 A 来表示 && 各端口默认属于 VLAN1，即 PVID = 1）
+	- 交换机首次上电时，各端口默认为 Access 端口（下图中用 A 来表示）
 
-<img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220329100140434.png" alt="image-20220329100140434" style="zoom:50%;" />
+![image-20220329100140434](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220329100140434.png)
 
 ##### Access 端口的接收处理方法
 
-- Access 端口一般只接受“未打标签”的普通以太网 MAC 帧，然后根据接收帧的端口的 PVID 给帧“打标签”，举例如下
+- 通常，Access 端口只接受普通的以太网 MAC 帧
 
-- 假设主机 A 发送了 1 个广播帧
+- 假设主机 A 发送了 1 个广播帧，则该帧会从端口 1 进入交换机
 
-	- 该帧从交换机的端口 1 进入交换机
+	- 由于端口 1 为 Access 端口 => 所以这个普通的以太网 MAC 帧会被“打标签”
 
-	- 由于端口 1 的类型是 Access，所以它会对接收到的“未打标签”的普通以太网 MAC 帧“打标签”，即：插入 4 字节的 VLAN 标记字段
+	- 由于端口 1 的 PVID 为 1 => 所以帧的 VID 为 1
 
-	- 由于端口 1 的 PVID 值为 1，因此所插入的 4 字节的 VLAN 标记字段中的 VID 值为 1
-
-<img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220329102906036.png" alt="image-20220329102906036" style="zoom:50%;" />
+![image-20220329102906036](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220329102906036.png)
 
 ##### Access 端口的发送处理方法
 
-- 若帧中的 VID 与端口的 PVID 相等，则“去标签”后转发该帧，否则不转发
+- 若帧的 VID 与端口的 PVID 相等，则“去标签”后转发帧
 
-- 对于上例，由于广播帧中 VID 的取值与端口 2、3、4 的 PVID 的取值相等，都为 1
+![image-20220329103427182](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220329103427182.png)
 
-- 所以，广播帧会被先“去标签”后从这 3 个端口转发
+#### 举例（将主机 A 和 B 划归到 VLAN2，将主机 C 和 D 划归到 VLAN3）
 
-<img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220329103427182.png" alt="image-20220329103427182" style="zoom:50%;" />
+![image-20220408171314928](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220408171314928.png)
 
-##### 如果我们的应用需求是：将主机 A 和 B 划归到 VLAN2，将主机 C 和 D 划归到 VLAN3
+- 首先在交换机上创建 VLAN2 和 VLAN3
 
-- 如此，VLAN2 中的广播帧不会传送到 VLAN3，VLAN3 中的广播帧也不会传送到 VLAN2
+- 然后
 
-- 为实现这种应用，可在交换机上创建 VLAN2 和 VLAN3，然后
+	- 将交换机的端口 1 和 2 划归到 VLAN2（端口 1 和 2 的 PVID 也就为 2）
 
-	- 将交换机的端口 1 和 2 划归到 VLAN2，因此端口 1 和 2 的 PVID 值为 2
+	- 将交换机的端口 3 和 4 划归到 VLAN3（端口 3 和 4 的 PVID 也就为 3）
 
-	- 将交换机的端口 3 和 4 划归到 VLAN3，因此端口 3 和 4 的 PVID 值为 3
+![image-20220329103836400](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220329103836400.png)
 
-<img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220329103836400.png" alt="image-20220329103836400" style="zoom:50%;" />
+- 假设主机 A 发送了 1 个广播帧，则该帧会从端口 1 进入交换机
 
-- 假设主机 A 发送广播帧
+![image-20220329104140514](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220329104140514.png)
 
-	- 该帧从交换机的端口 1 进入交换机
+- 由于端口 1 为 Access 端口 => 所以这个普通的以太网 MAC 帧会被“打标签”
 
-	- 由于端口 1 的类型是 Access，所以它会对接收到的“未打标签”的普通以太网 MAC 帧“打标签”，即：插入 4 字节的 VLAN 标记字段
+- 由于端口 1 的 PVID 为 2 => 所以帧的 VID 为 2
 
-	- 由于端口 1 的 PVID 值为 2，因此所插入的 4 字节的 VLAN 标记字段中的 VID 值为 2
-	
-- 由于广播帧中 VID 的取值与端口 2 的 PVID 的取值相等，都为 2
-
-- 所以，广播帧会被先“去标签”后从端口 2 转发
-
-<img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220329104140514.png" alt="image-20220329104140514" style="zoom:50%;" />
+- 由于该帧的 VID 和端口 2 的 PVID 值相等 => 所以该帧会被“去标签”后从端口 2 转发
 
 #### 2、Trunk 端口
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 > Trunk 端口可以属于多个 VLAN，也就是说 Trunk 端口可以接收和发送多个 VLAN 的帧
 > 
@@ -131,7 +141,7 @@
 
 <img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220329111307782.png" alt="image-20220329111307782" style="zoom:50%;" />
 
-- 假设我们的应用需求是：将主机 A、B、E、F 划归到 VLAN1，将主机 C、D、G、H 划归到 VLAN2
+- 假设我们的应用需求是：将主机 A、B、E、F 划归到 VLAN-1，将主机 C、D、G、H 划归到 VLAN2
 
 <img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220329111406482.png" alt="image-20220329111406482" style="zoom:50%;" />
 
@@ -139,7 +149,7 @@
 
 	- 各端口类型默认为 Access
 
-	- 各端口默认属于 VLAN1，相应的 PVID 值为 1
+	- 各端口默认属于 VLAN-1，相应的 PVID 值为 1
 
 - 因此
 
@@ -147,7 +157,7 @@
 
 	1. 分别在两台交换机上创建 VLAN2，并将它们的端口 3 和 4 划归到 VLAN2，其相应的 PVID 值为 2
 
-	2. 两台交换机的端口 1 和 2 保持默认配置即可，也就是属于 VLAN1，其相应的 PVID 值为 1
+	2. 两台交换机的端口 1 和 2 保持默认配置即可，也就是属于 VLAN-1，其相应的 PVID 值为 1
 
 	> 注意：需要将这两台交换机之间互连的端口 5 的类型更改为 Trunk，而 PVID 值保持默认的 1 即可
 
@@ -241,6 +251,3 @@
 #### 小结
 
 ![image-20220329120806847](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220329120806847.png)
-
-
-
