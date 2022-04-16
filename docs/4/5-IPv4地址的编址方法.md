@@ -154,6 +154,19 @@
 
 ##### 路由聚合（构造超网）
 
+- 如下图，路由器 R1 与 5 个网络以及路由器 R2 直接相连
 
+- 路由器 R1 和 R2 互为相邻路由器，它们周期性地将自己所知道的路由信息通告给对方
 
+  ![image-20220416115649344](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220416115649344.png)
+
+**思考：R1 将怎样的路由信息通告给 R2 呢 ？**
+
+- 如果 R1 将自己直连的这 5 个网络的路由记录都通告给 R2，则 R2 的路由表会增加 5 条路由记录
+
+  ![image-20220416120024588](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220416120024588.png)
+
+- 为了减少路由记录对路由表的占用，能否将这 5 条路由记录聚合成 1 条呢 ？（Of course ！构造超网 ！）
+
+  ![image-20220416120546016](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220416120546016.png)
 
