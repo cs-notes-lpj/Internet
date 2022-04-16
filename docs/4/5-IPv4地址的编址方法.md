@@ -173,3 +173,9 @@
 - 不难看出：
 
   ![image-20220416121037999](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220416121037999.png)
+
+##### 习题
+
+![image-20220416131212086](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220416131212086.png)
+
+![image-20220416131346897](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220416131346897.png)
