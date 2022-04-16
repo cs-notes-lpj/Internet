@@ -82,3 +82,52 @@
 
 #### 二、划分子网的 IPv4 地址
 
+- 为什么需要划分子网
+
+  - 假设某单位有一个大型的局域网需要连接到因特网
+
+    ![image-20220416101238590](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220416101238590.png)
+
+  - 如果申请一个 C 类网络地址，则其可分配的 IP 地址数量只有 2^8 - 2 = 254 个
+
+  - 254 个太少了，不够用，因此申请了一个 B 类网络地址，可分配的 IP 地址数量达到了 2^16 - 2 = 65534 个
+
+  - 给每台计算机和路由器的各接口都分配一个 IP 地址后，还有大量 IP 地址剩余
+
+  - 这些剩余的 IP 地址只能由该单位的同一网络使用，其它单位的网络不能使用
+
+  - 随着该单位计算机网络的发展和建设（又新增了一些计算机 & 需要将原来的网络划分成 3 个独立的网络）
+
+    ![image-20220416102209785](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220416102209785.png)
+
+  - 假设子网 1 仍然使用原先申请到的 B 类网络地址，那么就需要为子网 2 和 子网 3 各申请一个网络地址
+
+  - 这就会导致一些弊端：
+
+    1. 申请新的网络地址需要等待很长的时间，也需花费更多的费用
+
+    2. 即便申请到了新的网络地址，这也会使路由器的路由表新增对这两个新的网络的路由记录
+
+    3. 另外，原有网络中剩余的大量 IP 地址会被浪费
+
+  > 如果可以从 IP 地址的主机号部分借用一些位，作为子网号，来区分不同的子网，就可以利用原有网络中剩余的大量 IP 地址，而无需再申请新的网络地址
+
+  ![image-20220416102820442](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220416102820442.png)
+
+  ![image-20220416102951111](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220416102951111.png)
+
+##### 子网掩码
+
+![image-20220416103615081](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220416103615081.png)
+
+![image-20220416104223103](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220416104223103.png)
+
+![image-20220416104657043](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220416104657043.png)
+
+##### 默认的子网掩码
+
+![image-20220416105501210](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220416105501210.png)
+
+#### 三、无分类编址的 IPv4 地址
+
+
