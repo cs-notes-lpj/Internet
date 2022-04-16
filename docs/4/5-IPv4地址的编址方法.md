@@ -130,4 +130,30 @@
 
 #### 三、无分类编址的 IPv4 地址
 
+- 缘由
+
+  - 世界上有数量庞大的 C 类网，但 C 类网的地址空间实在太小了（人们一般都不申请 C 类网），所以 C 类网并没有得到充分使用
+
+  - 因特网的 IP 地址仍在加速消耗，整个 IPv4 地址空间面临全部耗尽的威胁
+
+- 为此
+
+  - 因特网工程任务组 IETF 以面向未来的眼光专门成立了 IPv6 工作组负责研究新版本 IP
+
+  - 同时提出采用无分类编址的方法来应对目前 IPv4 地址紧张的问题
+
+    - 1993 年，IETF 发布了（无分类域间路由选择 `C`lassless `I`nter-`D`omain `R`outing）的 RFC 文档（RFC 1517～1520）
+
+    - **CIDR 消除了传统的 A、B、C 类地址，以及划分子网的概念**，因此可以更加有效地分配 IPv4 的地址空间，在 IPv6 应用之前允许因特网的规模继续增长
+
+##### 斜线记法
+
+![image-20220416114129410](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220416114129410.png)
+
+![image-20220416114944809](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220416114944809.png)
+
+##### 路由聚合（构造超网）
+
+
+
 
