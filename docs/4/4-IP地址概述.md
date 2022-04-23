@@ -2,11 +2,11 @@
 
 https://liupj.top/hnust-network/#/docs/期中复盘总结?id=ip-地址的提出
 
-Internet 上的每一台主机或路由器的每一个接口，都会被分配一个世界上独一无二的 IP 地址
-
-#### IP 地址的点分十进制表示法
+Internet 上的每一台主机或路由器的每一个接口，都会被分配一个世界上独一无二的 IP 地址（用在网络层）
 
 > 由于用 0 和 1 表示的 IP 地址不便于人类的阅读和记录，所以先驱发明了 IP 地址的点分十进制表示法
+
+#### IP 地址的点分十进制表示法
 
 ![image-20220412171027651](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220412171027651.png)
 
