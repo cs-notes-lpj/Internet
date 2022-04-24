@@ -97,3 +97,21 @@
 ![image-20220424181501214](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220424181501214.png)
 
 > 注意：此处所介绍的路由器查表转发 IP 数据报的过程，只是为了让大家理解其最基本的工作原理；在路由器的实际研发过程中，需要设计很好的数据结构以提高查找速度
+
+#### 路由器是隔离广播域的（否则容易广播风暴啊兄弟 ！严重浪费因特网资源 ！！！）
+
+假设主机 A 给本网络上的各设备发送了一个广播 IP 数据报
+
+![image-20220424181754670](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220424181754670.png)
+
+假设主机 A 给另一个网络发送广播 IP 数据报
+
+![image-20220424182058238](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220424182058238.png)
+
+#### 练习
+
+![image-20220424182444257](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220424182444257.png)
+
+![image-20220424182621446](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220424182621446.png)
+
+![image-20220424182911598](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220424182911598.png)
