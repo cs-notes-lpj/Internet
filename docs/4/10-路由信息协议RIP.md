@@ -14,3 +14,13 @@
 
 ![image-20220425203908875](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220425203908875.png)
 
+#### RIP 的基本工作过程
+
+![image-20220425211222035](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220425211222035.png)
+
+![image-20220425211447180](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220425211447180.png)
+
+![image-20220425211619197](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220425211619197.png)
+
+#### RIP 的路由条目的更新规则
+
