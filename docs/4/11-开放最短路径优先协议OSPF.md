@@ -47,3 +47,17 @@
   - 否则，当死亡倒计时为 0 时，就会判定该邻居路由器不可达
 
 ![image-20220426172310536](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220426172310536.png)
+
+##### 链路状态通告
+
+![image-20220426175245585](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220426175245585.png)
+
+- 链路状态通告 LSA 被封装在**链路状态更新分组 LSU** 中，采用洪泛法发送
+
+  - 收到链路状态更新分组 LSU 的路由器，会将该分组从自己的其它所有接口转发出去，这就是洪泛转发
+
+  - 这样一来，自治系统中的每个路由器所发送的链路状态更新分组，都会被传递给系统中的其它所有路由器
+
+##### 链路状态数据库
+
+
