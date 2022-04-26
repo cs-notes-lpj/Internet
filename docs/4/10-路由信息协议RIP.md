@@ -52,3 +52,44 @@
 
 #### RIP 存在「坏消息传播得慢」的问题
 
+如下图，假设 R1 到达其直连网络 N1 的链路出现了故障
+
+当 R1 检测出该故障后，就会将到达 N1 的路由条目中的距离修改为 16，表示 N1 不可达
+
+待到 RIP 更新周期，发送该路由信息给 R2
+
+而此时 R2 的路由表中关于 N1 的路由条目，仍然是先前通过 RIP 协议获取到的（即：到达 N1 的距离为 2，下一跳通过 R1 转发）
+
+![image-20220426105135584](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220426105135584.png)
+
+*假设 R2 的 RIP 更新周期先到时，则 R2 的路由信息会更早到达 R1，R1 的路由信息会之后到达 R2*
+
+![image-20220426105634985](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220426105634985.png)
+
+![image-20220426105816183](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220426105816183.png)
+
+![image-20220426105859879](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220426105859879.png)
+
+![image-20220426110052323](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220426110052323.png)
+
+> 注意：使用上述措施后，也无法避免路由环路问题，这是距离向量算法的本质决定的 ！
+
+#### 习题
+
+![image-20220426110602947](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220426110602947.png)
+
+#### 解析
+
+![image-20220426110634981](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220426110634981.png)
+
+![image-20220426110800529](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220426110800529.png)
+
+![image-20220426110929875](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220426110929875.png)
+
+![image-20220426111030046](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220426111030046.png)
+
+#### 小结
+
+本节只介绍了 RIP 最基本的工作原理，并不涉及 RIP 的全部细节（eg：RIP 相关报文的封装格式、RIP 中涉及的一些定时时长、...）
+
+目前，基于 IPv4 的 RIP 有两个版本（1 & 2），还有基于 IPv6 的 RIPng
