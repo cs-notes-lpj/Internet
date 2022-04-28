@@ -115,3 +115,95 @@ R1 收到后，就会将这些所缺少的链路状态项目的详细信息，�
 每 30 分钟或链路状态发生变化时，路由器都会发送链路状态更新分组，收到该分组的其他路由器将洪泛转发该分组，并给该路由器发回链路状态确认分组，这被称为新情况下的链路状态数据库同步
 
 ![image-20220428163524802](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220428163524802.png)
+
+#### 在多点接入网络中，OSPF 路由器邻居关系的建立
+
+当 OSPF 路由器在多点接入网络中建立邻居关系时，如果不采用其它机制，将会产生大量的多播分组
+
+例如：下图 5 台路由器连接在同一个多点接入网络中，它们周期性地发送问候分组以建立和维护邻居关系
+
+![image-20220428163840874](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220428163840874.png)
+
+这些路由器中的任意两个路由器都互为邻居关系，如下图
+
+![image-20220428164033818](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220428164033818.png)
+
+n 是路由器的数量
+
+如此，每个路由器要向其它 n-1 个路由器发送问候分组和链路状态更新分组
+
+为了减少所发送分组的数量，OSPF 采用**选举（指定路由器 & 备用的指定路由器）**
+
+指定路由器（`D`esignated`R`outer）
+
+备用的指定路由器（`B`ackup`D`esignated`R`outer）
+
+![image-20220428164439576](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220428164439576.png)
+
+**所有的非DR/BDR只与DR/BDR建立邻居关系**，如下图所示
+
+![image-20220428164547542](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220428164547542.png)
+
+因此，邻居关系数量减少到了
+
+![image-20220428164635131](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220428164635131.png)
+
+非DR/BDR之间无法直接交换信息，只能通过DR/BDR进行信息交换
+
+若DR出现问题，则由BDR顶替DR
+
+实现DR和BDR的选举并不复杂，无非就是各路由器之间交换一些选举参数（eg：接口IP地址、路由器ID、路由器优先级、...）
+
+根据选举规则选举出DR和BDR，这与交换机生成树协议选举根交换机类似，因此不再赘述
+
+#### “区域” 的概念
+
+![image-20220428165147715](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220428165147715.png)
+
+- 划分区域的好处：
+
+  - 把利用洪泛法交换链路状态信息的范围局限于每一个区域，而不是整个自治系统，这样就减少了整个网络上的通信量
+
+假设下图是一个规模很大的网络，我们将其划分为一个自治系统
+
+![image-20220428165258816](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220428165258816.png)
+
+在该自治系统内，所有路由器都使用 OSPF 协议
+
+OSPF 将该自治系统再划分为 4 个更小的区域（每个区域的规模不应太大，一般包含的路由器在 200 个以内）
+
+- 每个区域都有一个 32 比特的标识符，可以用点分十进制表示
+
+  - 主干区域用于连通其他区域，其标识符必须为 0，可表示为 0.0.0.0
+
+  - 其它区域的标识符不能为 0 且必须互不相同
+
+![image-20220428165431662](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220428165431662.png)
+
+#### “区域内路由器” & “区域边界路由器” & “主干路由器” & “自治系统边界路由器”
+
+如果路由器的所有接口都在同一个区域内，则该路由器称为**区域内路由器（`I`nternal`R`outer）**
+
+为了本区域可以和自治系统内的其他区域连通，每个区域都会有一个**区域边界路由器（`A`rea`B`order`R`outer）**，它的一个接口用于连接自身所在区域，另一个接口用于连接主干区域
+
+![image-20220428170202762](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220428170202762.png)
+
+主干区域内的路由器称为**主干路由器（`B`ack`b`one`R`outer）**
+
+> 也可以把区域边界路由器看作是主干路由器
+
+![image-20220428170523163](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220428170523163.png)
+
+在主干区域内还要有一个路由器，专门和本自治系统外的其它自治系统交换路由信息，称为**自治系统边界路由器（`AS` `B`order`R`outer）**
+
+![image-20220428170740322](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220428170740322.png)
+
+在本例中，区域边界路由器 R3，向主干区域发送自己所在区域 1 的链路状态通告，向自己所在区域发送区域 0、2、3 的链路状态通告
+
+区域边界路由器 R4，向主干区域发送自己所在区域 2 的链路状态通告，向自己所在区域发送区域 0、1、3 的链路状态通告
+
+区域边界路由器 R7，向主干区域发送自己所在区域 3 的链路状态通告，向自己所在区域发送区域 0、1、2 的链路状态通告
+
+![image-20220428171018403](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220428171018403.png)
+
+采用分层次划分区域的方法，虽然使交换信息的种类变多了，也使 OSPF 的协议更加复杂了，但是这样做却能使每一个区域内部交换路由信息的通信量大大减少，因而使 OSPF 协议能够用于规模很大的自治系统中
