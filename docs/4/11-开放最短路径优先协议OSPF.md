@@ -79,3 +79,9 @@ eg：下图网络拓扑，假设各链路旁的数字表示代价，通过各路
 ![image-20220428152627556](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220428152627556.png)
 
 *Dijkstra 算法的相关知识请自行查阅相关资料，本书不作介绍*
+
+#### OSPF 的 5 种分组类型
+
+![image-20220428161556483](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220428161556483.png)
+
+联想记忆法：来了新邻居，首先要问候（**问候分组**），然后简要介绍自己家（**数据库描述分组**），你可以向邻居详细地打听信息（**链路状态请求分组**），你也需要把你家的好吃的分享给你的所有邻居（**链路状态更新分组**），邻居收到后肯定会回复你（**链路状态确认分组**）
