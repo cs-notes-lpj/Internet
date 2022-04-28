@@ -85,3 +85,33 @@ eg：下图网络拓扑，假设各链路旁的数字表示代价，通过各路
 ![image-20220428161556483](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220428161556483.png)
 
 联想记忆法：来了新邻居，首先要问候（**问候分组**），然后简要介绍自己家（**数据库描述分组**），你可以向邻居详细地打听信息（**链路状态请求分组**），你也需要把你家的好吃的分享给你的所有邻居（**链路状态更新分组**），邻居收到后肯定会回复你（**链路状态确认分组**）
+
+#### OSPF 协议的基本工作过程
+
+相邻路由器之间周期性地发送问候分组，以便建立和维护邻居关系
+
+![image-20220428162508676](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220428162508676.png)
+
+建立邻居关系后，给邻居路由器发送数据库描述分组，也就是将自己的链路状态数据库中的所有链路状态项目的摘要信息发送给邻居路由器
+
+![image-20220428162818070](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220428162818070.png)
+
+eg：R1 收到 R2 的数据库描述分组后，发现自己缺少其中的某些链路状态项目，于是就会向 R2 发送链路状态请求分组
+
+R2 收到后，就会将 R1 所缺少的链路状态项目的详细信息，封装在链路状态更新分组中发送给 R1
+
+![image-20220428163056340](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220428163056340.png)
+
+R1 收到后，就会将这些所缺少的链路状态项目的详细信息，添加到自己的链路状态数据库中，并给 R2 发送链路状态确认分组
+
+![image-20220428163124182](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220428163124182.png)
+
+> 注意：R2 也可以向 R1 请求自己所缺少的链路状态项目的详细信息
+
+最终，R1 和 R2 的链路状态数据库将达到一致，也就是链路状态数据库同步
+
+![image-20220428163306400](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220428163306400.png)
+
+每 30 分钟或链路状态发生变化时，路由器都会发送链路状态更新分组，收到该分组的其他路由器将洪泛转发该分组，并给该路由器发回链路状态确认分组，这被称为新情况下的链路状态数据库同步
+
+![image-20220428163524802](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220428163524802.png)
