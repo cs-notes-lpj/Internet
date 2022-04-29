@@ -62,3 +62,18 @@ eg：下图画出了 H1 发送给 H2 的 IP 数据报，假设该数据报在传
 
 ##### 5、改变路由（重定向）
 
+路由器把改变路由报文发送给主机，让主机知道下次应将数据报发送给另外的路由器，这样可以通过更好的路由～
+
+eg：下图，假设我们给主机 H1 指定的默认网关是路由器 R1，则 H1 要发往网络 N2 的 IP 数据报都会传输给 R1，由其帮忙转发
+
+![image-20220429155235750](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220429155235750.png)
+
+当 R1 发现 H1 发往 N2 的数据报的最佳路由不应当经过 R1 而是应当经过 R4 时，就会用改变路由报文把这个情况告诉主机
+
+![image-20220429155453066](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220429155453066.png)
+
+于是，H1 就会在自己的路由表中添加一个项目：到达 N2 应经过路由器 R4，而非默认网关 R1
+
+之后，H1 要发往 N2 的 IP 数据报就都会传输给 R4，由其帮忙转发
+
+![image-20220429155709508](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220429155709508.png)
