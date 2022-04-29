@@ -52,5 +52,13 @@ R1 将其生存时间减 1 后结果是 1，表明该数据报的生存时间还
 
 ![image-20220429114215789](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220429114215789.png)
 
+eg：下图画出了 H1 发送给 H2 的 IP 数据报，假设该数据报在传输过程中收到了干扰，其首部出现了误码
+
+![image-20220429114548301](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220429114548301.png)
+
+当该数据报传输到路由器 R1 后，R1 检测出该数据报的首部出错，于是丢弃该数据报，并向发送该数据报的源主机 H1 发送 ICMP 差错报告报文，其类型为参数问题
+
+![image-20220429114709243](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220429114709243.png)
+
 ##### 5、改变路由（重定向）
 
