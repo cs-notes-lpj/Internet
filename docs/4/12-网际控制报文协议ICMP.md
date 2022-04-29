@@ -26,7 +26,9 @@ eg：假设下图主机 H1 要向主机 H2 发送 IP 数据报
 
 ![image-20220429113124678](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220429113124678.png)
 
-##### 3、时间超过
+##### 3、时间超过（有两种情况）
+
+**情况一：**
 
 ![image-20220429113332640](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220429113332640.png)
 
@@ -42,8 +44,13 @@ R1 将其生存时间减 1 后结果是 1，表明该数据报的生存时间还
 
 ![image-20220429113900867](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220429113900867.png)
 
+**情况二：**
+
+![image-20220429114024831](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220429114024831.png)
+
 ##### 4、参数问题
 
+![image-20220429114215789](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220429114215789.png)
 
 ##### 5、改变路由（重定向）
 
