@@ -2,7 +2,7 @@
 >
 > 载波监听多址接入/碰撞避免
 
-![image-20220322120905809](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220322120905809.png)
+![image-20220322120905809](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220322120905809.png)
 
 > 思考：
 >
@@ -10,7 +10,7 @@
 >
 > 那么同样使用广播信道的无线局域网能否使用 CSMA/CD 协议呢 ？
 
-![image-20220322171338032](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220322171338032.png)
+![image-20220322171338032](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220322171338032.png)
 
 - 如图所示，有 4 个无线站点
 
@@ -20,7 +20,7 @@
 
 - 即：A 和 C 都检测不到对方的无线信号
 
-<img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220322171617713.png" alt="image-20220322171617713" style="zoom:50%;" />
+<img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220322171617713.png" alt="image-20220322171617713" style="zoom:50%;" />
 
 - 当 A 和 C 都要给 B 发送帧时，就会产生碰撞，但 A 和 C 无法检测到碰撞
 
@@ -32,7 +32,7 @@
 
 - 而总线上产生的碰撞信号，最多经过一个总线端到端往返传播时延，也会传遍总线
 
-![image-20220322172119964](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220322172119964.png)
+![image-20220322172119964](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220322172119964.png)
 
 ---
 
@@ -85,7 +85,7 @@
 
 #### CSMA/CA 协议的工作原理
 
-![image-20220323093918128](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220323093918128.png)
+![image-20220323093918128](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220323093918128.png)
 
 - 如图所示都是无线站点，横坐标为时间
 
@@ -117,7 +117,7 @@
 
 - 如图所示，在源站和目的站的一次对话过程中，无线信道处于忙状态
 
-<img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220323094742886.png" alt="image-20220323094742886" style="zoom:40%;" />
+<img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220323094742886.png" alt="image-20220323094742886" style="zoom:40%;" />
 
 - 无线信道处于忙状态时，若其他无线站点要发送数据，则必须退避
 
@@ -167,7 +167,7 @@
 
 - 举例说明 CSMA/CA 协议的退避算法
 
-<img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220323112550801.png" alt="image-20220323112550801" style="zoom:40%;" />
+<img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220323112550801.png" alt="image-20220323112550801" style="zoom:40%;" />
 
 - 如图所示，A、B、C、D、E 是 5 个无线站点，横坐标为时间
 
@@ -211,7 +211,7 @@
 
 - 为了尽可能（减少碰撞发生的次数 & 降低碰撞的影响），802.11 标准允许要发送数据的站点对信道进行预约
 
-![image-20220323122028399](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220323122028399.png)
+![image-20220323122028399](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220323122028399.png)
 
 - 源站在发送数据帧之前会先发送一个短的控制帧，称为请求发送 RTS（`R`equest `T`o `S`end），它包括源地址、目的地址以及这次通信（包括相应的确认帧）所需的持续时间
 
@@ -229,7 +229,7 @@
 
 - 除源站和目的站以外的其它各站，在收到 CTS 帧或数据帧后，就会推迟接入到无线局域网，这样就保证了源站和目的站之间的通信不会受到其它站的干扰，如下图所示
 
-<img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220323122509946.png" alt="image-20220323122509946" style="zoom:55%;" />
+<img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220323122509946.png" alt="image-20220323122509946" style="zoom:55%;" />
 
 - 如果 RTS 帧发生碰撞，源站就收不到 CTS 帧，就需要执行退避算法重传 RTS 帧
 
@@ -260,7 +260,7 @@
 
 - 如下图是 4 个无线站点，A 和 C 互为隐蔽站
 
-<img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220323141600941.png" alt="image-20220323141600941" style="zoom:50%;" />
+<img src="https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220323141600941.png" alt="image-20220323141600941" style="zoom:50%;" />
 
 - A 在给 B 发送数据帧之前，可以使用 RTS 帧来预约信道
 
@@ -272,8 +272,8 @@
 
 #### 习题
 
-![image-20220323141857715](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220323141857715.png)
+![image-20220323141857715](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220323141857715.png)
 
-![image-20220323142031243](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220323142031243.png)
+![image-20220323142031243](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220323142031243.png)
 
-![image-20220323142128485](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/old-from-gitee-2022-03-25/by-picgo/image-20220323142128485.png)
+![image-20220323142128485](https://aliyun-oss-lpj.oss-cn-qingdao.aliyuncs.com/images/by-picgo/image-20220323142128485.png)
