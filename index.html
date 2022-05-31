@@ -34,10 +34,13 @@
       // PLUGINS-OPTIONS
       // -----------------------------------------------------------------
       search: {
-        depth: 4,
+        maxAge: 43200000,
+        paths: 'auto',
         placeholder: 'Search...',
         noData: 'No results!',
-        hideOtherSidebarContent: true
+        depth: 6,
+        hideOtherSidebarContent: true,
+        namespace: 'website-1'
       },
       count:{
         countable:true,
