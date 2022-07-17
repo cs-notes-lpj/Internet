@@ -10,6 +10,6 @@ Let's begin to learn it.
 
 #### 前 3 章的阅读方式
 
-First to see [here](https://liupj.top/hnust-network/#/docs/期中复盘总结)
+First to see [here](https://cs-notes-lpj.github.io/Internet/#/docs/期中复盘总结)
 
 然后再阅读前三章
